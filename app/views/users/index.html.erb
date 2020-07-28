@@ -1,0 +1,8 @@
+<% @users.each do  |user| %>
+  <%= link_to user.name, "user" %> | Age <%= user.age%>
+  <br>
+  Bio: <%= user.bio %>
+  <br>
+  Borough: <%= user.borough %>
+  <br>
+<% end %>
