@@ -1,0 +1,40 @@
+<h1><%=@user.name %></h1>
+<br>
+<b>Age:</b> <%=@user.age%>
+<br>
+<b>Borough:</b> <%=@user.borough%> 
+<br>
+<b>Bio:</b> <%=@user.bio%>
+<br>
+<b>Favorite Skate Spots:</b>
+<ul>
+  <% @user.skate_spots.each do |spot| %>
+  <li> 
+    <%= link_to spot.name, skate_spot_path(spot) %>
+    <br>
+    <b>Borough:</b> <%=spot.borough %> | <b>Rating:</b><%= spot.rating %> 
+  </li>
+  <% end %>
+</ul>
+<br>
+<b>Favorite Skate Shops:</b>
+<ul>
+  <% @user.skate_shops.each do |shop| %>
+  <li> 
+    <%= link_to shop.name, skate_shop_path(shop) %>
+    <br>
+    <b>Borough:</b> <%=shop.borough %> | <b>Rating:</b><%= shop.rating %> 
+  </li>
+  <% end %>
+</ul>
+<br>
+<b>Favorite Skate Shops:</b>
+<ul>
+  <% @user.skate_parks.each do |park| %>
+  <li> 
+    <%= link_to park.name, skate_park_path(park) %>
+    <br>
+    <b>Borough:</b> <%=park.borough %> | <b>Rating:</b><%= park.rating %> 
+  </li>
+  <% end %>
+</ul>
