@@ -1,0 +1,2 @@
+class UserSkateSpotsController < ApplicationController
+end

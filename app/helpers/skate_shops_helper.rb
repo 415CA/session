@@ -1,0 +1,2 @@
+module SkateShopsHelper
+end

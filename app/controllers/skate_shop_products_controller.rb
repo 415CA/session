@@ -1,0 +1,2 @@
+class SkateShopProductsController < ApplicationController
+end

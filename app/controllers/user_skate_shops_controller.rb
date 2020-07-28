@@ -1,0 +1,2 @@
+class UserSkateShopsController < ApplicationController
+end
