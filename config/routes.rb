@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   resources :skate_parks
   resources :skate_spots
   resources :users
+
+  get '/users/brooklyn', to: 'users_controller#brooklyn'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,42 @@
+<%= form_for @skate_spot do |f| %>
+  <% if @skate_spot.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@skate_spot.errors.count, "error") %>
+        prohibited this skate_spot from being saved:
+      </h2>
+  
+      <ul>
+      <% @skate_spot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <br>
+  <br>
+  <%= f.label :borough %>
+  <%= f.text_field :borough %>
+  <br>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description  %>
+  <br>
+  <br>
+  <%= f.label :rating %>
+  <%= f.text_field :description  %>
+  <br>
+  <br>
+  <%= f.label 'Google Map Link' %>
+  <%= f.text_field :google_map  %>
+  <br>
+  <br>
+  <%= f.submit "Create Review" %>
+<% end %>

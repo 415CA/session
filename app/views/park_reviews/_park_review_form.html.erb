@@ -1,0 +1,31 @@
+<h3>Review Form</h3>
+<%= form_for @park_review do |f| %>
+  <% if @park_review.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@park_review.errors.count, "error") %>
+        prohibited this park_review from being saved:
+      </h2>
+  
+      <ul>
+      <% @park_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <b> <%= f.label :title %></b>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+  <b> <%= f.label :content %> </br>
+  <%= f.text_area :content %>
+  <br>
+  <br>
+  <b> <%= f.label :rating %> 
+  <%= f.text_field :rating %>
+  </br>
+  </br>
+  <%= f.submit "Create Review" %>
+<% end %>

@@ -1,0 +1,57 @@
+<h1>Skate Shops</h1>
+<h2>Manhattan</h2>
+<ul>
+<% @skate_shops.sort_borough('Manhattan').each do  |skate_shop| %>
+  <li>
+    <%= link_to skate_shop.name, skate_shop_path(skate_shop) %> | Rating <%= skate_shop.rating%>
+    <br>
+    Description: <%= skate_shop.description %>
+    <br>
+  </li>
+<% end %>
+</ul>
+
+<h2>Bronx</h2>
+<ul>
+<% @skate_shops.sort_borough('Bronx').each do  |skate_shop| %>
+  <li>
+    <%= link_to skate_shop.name, skate_shop_path(skate_shop) %> | Rating <%= skate_shop.rating%>
+    <br>
+    Description: <%= skate_shop.description %>
+    <br>
+  </li>
+<% end %>
+</ul>
+<h2>Brooklyn</h2>
+<ul>
+<% @skate_shops.sort_borough('Brooklyn').each do  |skate_shop| %>
+  <li>
+    <%= link_to skate_shop.name, skate_shop_path(skate_shop) %> | Rating <%= skate_shop.rating%>
+    <br>
+    Description: <%= skate_shop.description %>
+    <br>
+  </li>
+<% end %>
+</ul>
+<h2>Queens</h2>
+<ul>
+<% @skate_shops.sort_borough('Queens').each do  |skate_shop| %>
+  <li>
+    <%= link_to skate_shop.name, skate_shop_path(skate_shop) %> | Rating <%= skate_shop.rating%>
+    <br>
+    Description: <%= skate_shop.description %>
+    <br>
+  </li>
+<% end %>
+</ul>
+<h2>Staten Island</h2>
+<ul>
+<% @skate_shops.sort_borough("Staten Island").each do  |skate_shop| %>
+  <li>
+    <%= link_to skate_shop.name, skate_shop_path(skate_shop) %> | Rating <%= skate_shop.rating%>
+    <br>
+    Description: <%= skate_shop.description %>
+    <br>
+  </li>
+<% end %>
+</ul>

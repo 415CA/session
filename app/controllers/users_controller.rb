@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
-  before_action :find_user, except: [:index, :new, :create]
+  before_action :find_user, except: [:index, :new, :create, :brooklyn]
 
   def index
     @users = User.all
   end
 
   def show
+    @skate_shops = SkateShop.all
+
   end
+
 
   def new
     @user = User.new
@@ -56,6 +59,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :age, :bio, :borough)
   end
 
+  def find_borough
+    @borough = SkateShop.find{|shop|shop.borough == "Brooklyn"}
+  end
+
+
 end
-
-

@@ -1,0 +1,4 @@
+<h1>Brooklyn</h1>
+<% SkateShop.select {|shop| shop.borough == "Brooklyn" }.each do |shop| %>
+<%= shop.name%>
+<% end %>

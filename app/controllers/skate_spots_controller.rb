@@ -16,7 +16,7 @@ class SkateSpotsController < ApplicationController
   end
 
   def create
-    @skate_spot = SkateSpot.new(params[:skate_spot])
+    @skate_spot = SkateSpot.new(skate_spot_params)
     if @skate_spot.save
       flash[:success] = "SkateSpot successfully created"
       redirect_to @skate_spot
@@ -27,7 +27,7 @@ class SkateSpotsController < ApplicationController
   end
 
   def update
-    if @skate_spot.update_attributes(params[:skate_spot])
+    if @skate_spot.update_attributes(skate_spot_params)
       flash[:success] = "SkateSpot was successfully updated"
       redirect_to @skate_spot
     else
@@ -50,6 +50,10 @@ class SkateSpotsController < ApplicationController
 
     def find_skate_spot
       @skate_spot = SkateSpot.find(params[:id])
+    end
+
+    def skate_spot_params
+      params.require(:skate_spot).permit(:name, :address, :borough, :description, :google_map )
     end
 
 end

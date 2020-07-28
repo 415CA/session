@@ -1,4 +1,14 @@
 <h1> Welcome Skaters </h1>
+
+
+<Table>
+<tr>
+<td><%= link_to "Skate Spots", skate_spots_path %></td>
+<td><%= link_to "Skate Parks", skate_parks_path %></td>
+<td><%= link_to "Skate Shops", skate_shops_path %></td>
+<tr>
+</Table>
+
 <h2> Current Users </h2>
 <br>
 <% @users.each do  |user| %>
@@ -8,5 +18,5 @@
   <br>
   Borough: <%= user.borough %>
   <br>
+  <br>
 <% end %>
-
