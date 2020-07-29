@@ -1,14 +1,23 @@
 
   <h1> <%=@skate_park.name %> </h1>
-  Address: <%=@skate_park.address %>
-  <br>
-  Borough: <%=@skate_park.borough %>
-  <br>
-  Rating: <%= @skate_park.rating%>
-  <br>
-  Description: <%= @skate_park.description %>
-  <br>
-  Map:
-  <br>
+      <b>Address:</b> <%=@skate_park.address %>
+        <br>
+      <b>Borough:</b> <%=@skate_park.borough %>
+        <br>
+      <b>Rating:</b> <%= @skate_park.rating%>
+        <br>
+      <b>Description:</b> <%= @skate_park.description %>
+        <br>
+      <b>Map:</b>
+        <br>
   <iframe src="<%= @skate_park.google_map %>" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-  <%= button_to "Review Park", new_park_review_path %>
+<p>
+  <hr>
+<%@skate_park.park_reviews.each do |review|%>
+  <p><b><%= review.user.name%></b>/
+        <%= review.title%>/
+          <b>rating:</b><%= review.rating%><br>
+
+  <%= review.content %></p>
+<%end%>
+  <%= link_to "Review Park", new_park_review_path, :class => "button" %></p>

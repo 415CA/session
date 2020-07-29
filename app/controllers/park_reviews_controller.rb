@@ -1,5 +1,5 @@
 class ParkReviewsController < ApplicationController
-  before_action :find_park_review, except: [:index, :new, :create]
+  # before_action :find_park_review, except: [:index, :new, :create]
 
   def new
     @park_review = ParkReview.new
@@ -9,7 +9,7 @@ class ParkReviewsController < ApplicationController
     @park_review = ParkReview.new(park_review_params)
     if @park_review.save
       flash[:success] = "ParkReview successfully created"
-      redirect_to @park_review
+      redirect_to skate_park_path(@park_review.skate_park_id)
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -17,6 +17,7 @@ class ParkReviewsController < ApplicationController
   end
   
   def edit
+    @park_review = ParkReview.find(park_review_params)
   end
 
 
@@ -42,9 +43,9 @@ class ParkReviewsController < ApplicationController
 
   private
 
-    def find_park_review
-      @park_review = ParkReview.find(params[:id])
-    end
+    # def find_park_review
+    #   @park_review = ParkReview.find(params[:id])
+    # end
 
     def park_review_params
       params.require(:park_review).permit(:title, :content, :rating, :user_id, :skate_park_id)

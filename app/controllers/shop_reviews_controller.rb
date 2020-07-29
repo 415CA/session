@@ -19,7 +19,7 @@ class ShopReviewsController < ApplicationController
     @shop_review = ShopReview.new(shop_review_params)
     if @shop_review.save
       flash[:success] = "ShopReview successfully created"
-      redirect_to @shop_review
+      redirect_to skate_shop_path(@shop_review.skate_shop_id)
     else
       flash[:error] = "Something went wrong"
       render 'new'
