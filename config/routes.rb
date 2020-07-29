@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   resources :user_skate_shops
   resources :user_skate_parks
   resources :user_skate_spots
@@ -15,6 +19,10 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
   get '/users/brooklyn', to: 'users_controller#brooklyn'
+
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
