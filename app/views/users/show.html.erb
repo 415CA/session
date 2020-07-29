@@ -4,7 +4,10 @@
 <br>
 <b>Borough:</b> <%=@user.borough%> 
 <br>
-<b>Bio:</b> <%=@user.bio%>
+<b>Bio:</b> <%=@user.bio%><br>
+<% if @user == current_user %>
+<%= link_to "Edit Profile", edit_user_registration_path, :class => "button" %></p>
+<% end %>
 <br>
 <b>Favorite Skate Spots:</b>
 <ul>
@@ -38,5 +41,7 @@
   </li>
   <% end %>
 </ul>
+
+ 
 
 <%= render 'near_user' %>

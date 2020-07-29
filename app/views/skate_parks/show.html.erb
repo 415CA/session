@@ -23,4 +23,7 @@
     </div>
 <%end%>
 <hr>
+
+<% if user_signed_in? %>
   <%= link_to "Review Parks", new_park_review_path, :class => "button" %></p>
+  <% end %>
