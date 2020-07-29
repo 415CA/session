@@ -1,6 +1,10 @@
 class ParkReviewsController < ApplicationController
   # before_action :find_park_review, except: [:index, :new, :create]
 
+  def show 
+    reviews = ParkReviews.find(params[:id])
+  end
+
   def new
     @park_review = ParkReview.new
   end
