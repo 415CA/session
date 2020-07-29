@@ -13,10 +13,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    
   end
 
-  def edit
-  end
+ 
 
   def create
     @user = User.new(user_params)
@@ -27,6 +27,9 @@ class UsersController < ApplicationController
       flash[:error] = "Something went wrong"
       render 'new'
     end
+  end
+
+  def edit
   end
 
   def update
@@ -56,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :age, :bio, :borough)
+    params.require(:user).permit(:name, :age, :bio, :borough, :password)
   end
 
   def find_borough

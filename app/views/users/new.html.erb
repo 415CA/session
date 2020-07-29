@@ -1,0 +1,25 @@
+<h1>Sign Up</h1>
+<%= form_with model: @user do |f| %>
+
+    <b><%= f.label :name %>:</b><br>
+     <%= f.text_field :name %>
+      <br>
+      <br>
+    <b> <%= f.label :age %> :</b><br>
+    <%= f.number_field :age %>
+      <br>
+      <br>
+    <b> <%= f.label :bio %>:</b><br>
+    <%= f.text_field :bio %> 
+        <br>
+        <br>
+    <b> <%= f.label :borough %>:</b><br>
+    <%= f.text_field :borough %> 
+     <br>
+      <br>
+      <b> <%= f.label :password %>:</b><br>
+    <%= f.password_field :password %> <br><br>
+   
+
+  <%= f.submit "Create User" %>
+  <% end %>

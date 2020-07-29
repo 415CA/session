@@ -12,5 +12,6 @@ class User < ApplicationRecord
   has_many :skate_parks, through: :park_reviews
   has_many :skate_spots, through: :spot_reviews
 
+ 
     
 end
