@@ -11,35 +11,32 @@
 <br>
 <b>Favorite Skate Spots:</b>
 <ul>
-  <% @user.skate_spots.each do |spot| %>
+  <% @user.favorite_spots.each do |spot| %>
   <li> 
-    <%= link_to spot.name, skate_spot_path(spot) %>
-    <br>
-    <b>Borough:</b> <%=spot.borough %> | <b>Rating:</b><%= spot.rating %> 
+  <b> <%= link_to spot.name, skate_spot_path(spot) %></b> | <b>Borough:</b> <%=spot.borough %> | <b>Rating:</b><%= spot.rating %> 
   </li>
   <% end %>
 </ul>
 <br>
 <b>Favorite Skate Shops:</b>
 <ul>
-  <% @user.skate_shops.each do |shop| %>
+  <% @user.favorite_shops.each do |shop| %>
   <li> 
-    <%= link_to shop.name, skate_shop_path(shop) %>
-    <br>
-    <b>Borough:</b> <%=shop.borough %> | <b>Rating:</b><%= shop.rating %> 
+  <b> <%= link_to shop.name, skate_shop_path(shop) %> </b> | <b>Borough:</b> <%=shop.borough %> | <b>Rating:</b><%= shop.rating %> 
   </li>
   <% end %>
 </ul>
 <br>
 <b>Favorite Skate Parks:</b>
 <ul>
-  <% @user.skate_parks.each do |park| %>
+  <% @user.favorite_parks.each do |park| %>
   <li> 
-    <%= link_to park.name, skate_park_path(park) %>
-    <br>
-    <b>Borough:</b> <%=park.borough %> | <b>Rating:</b><%= park.rating %> 
+    <b> <%= link_to park.name, skate_park_path(park) %> </b> | <b>Borough:</b> <%=park.borough %> | <b>Rating:</b><%= park.rating %>
   </li>
   <% end %>
 </ul>
-
+<br>
+<hr>
+<b> Check out what's in your city! </b>
+<br>
 <%= render 'near_user' %>

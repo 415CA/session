@@ -53,7 +53,7 @@ class SkateSpotsController < ApplicationController
     end
 
     def skate_spot_params
-      params.require(:skate_spot).permit(:name, :address, :borough, :description, :google_map )
+      params.require(:skate_spot).permit(:name, :address, :borough, :description, :google_map, :user_skate_spot )
     end
 
 end

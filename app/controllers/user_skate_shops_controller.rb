@@ -9,25 +9,25 @@ class UserSkateShopsController < ApplicationController
   end
 
   def new
-    @user_skate_shop = UserSkateShop.new
+    @user_skate_shop = UserSkateShop.new()
+    @skate_shop = SkateShop.all
   end
 
   def edit
   end
 
   def create
-    @user_skate_shop = UserSkateShop.new(params[:user_skate_shop])
-    if @user_skate_shop.save
-      flash[:success] = "UserSkateShop successfully created"
-      redirect_to @user_skate_shop
+    @user_skate_shop = UserSkateShop.create(user_skate_shop_params)
+    if @user_skate_shop.valid?
+      redirect_to @user_skate_shop.skate_shop
     else
-      flash[:error] = "Something went wrong"
-      render 'new'
+      flash[:error] = 'Something went wrong'
+      redirect_to new_user_skate_shop_path
     end
   end
 
   def update
-    if @user_skate_shop.update_attributes(params[:user_skate_shop])
+    if @user_skate_shop.update_attributes(user_skate_shop_params)
       flash[:success] = "UserSkateShop was successfully updated"
       redirect_to @user_skate_shop
     else

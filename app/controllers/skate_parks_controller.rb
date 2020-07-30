@@ -16,6 +16,6 @@ class SkateParksController < ApplicationController
     end
 
     def skate_park_params
-      params.require(:skate_park).permit(:name, :address, :borough, :description, :rating, :google_map)
+      params.require(:skate_park).permit(:name, :address, :borough, :description, :rating, :google_map, :user_skate_park)
     end
 end

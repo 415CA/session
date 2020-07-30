@@ -1,4 +1,3 @@
-<br>
 <b><%= @user.borough %> Skate Shops</b>
   <ul>
     <% SkateShop.select {|shop| shop.borough == @user.borough }.each do |shop| %>
@@ -8,6 +7,7 @@
     <% end %>
   </ul>
 <br>
+
 <b><%= @user.borough %> Skate Parks</b>
   <ul>
     <% SkatePark.select {|park| park.borough == @user.borough }.each do |park| %>
@@ -17,11 +17,13 @@
     <% end %>
   </ul>
 <br>
+
 <b><%= @user.borough %> Skate Spots</b>
   <ul>
     <li>
       <% @user.skate_spots.select {|spot| spot.borough == @user.borough }.each do |spot| %>
-        <%= link_to spot.name, spot%>
+        <%= link_to spot.name, spot%> 
       <% end %>
     </li>
   </ul>
+<br>

@@ -24,11 +24,9 @@ class User < ApplicationRecord
   def favorite_shops
     self.user_skate_shops.map{ |spot| spot.skate_shop }.uniq
   end
-  
+    
   def favorite_parks
     self.user_skate_parks.map{ |spot| spot.skate_park }.uniq
   end
-
- 
     
 end
