@@ -36,12 +36,13 @@ class ParkReviewsController < ApplicationController
   end
 
   def destroy
+    @park_review = ParkReview.find(params[:id])
     if @park_review.destroy
       flash[:success] = "ParkReview was successfully deleted"
-      redirect_to @park_reviews_path
+      redirect_to skate_park_path(@park_review.skate_park_id)
     else
       flash[:error] = "Something went wrong"
-      redirect_to @park_reviews_path
+      redirect_to skate_park_path(@park_review.skate_park_id)
     end
   end
 

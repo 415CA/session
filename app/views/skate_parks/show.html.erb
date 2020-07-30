@@ -20,6 +20,9 @@
         <%= review.title%>/
           <b>rating:</b><%= review.rating%><br>
             <%= review.content %></p>
+      <% if review.user == current_user %>
+        <%= button_to "delete", "/park_reviews/#{review.id}", method: :delete %>
+    <% end %>
     </div>
 <%end%>
 <hr>
