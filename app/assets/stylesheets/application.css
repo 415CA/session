@@ -14,13 +14,6 @@
  *= require_self
  */
 
-<<<<<<< HEAD
- <div class="w3-bar w3-black">
-  <a href="#" class="w3-bar-item w3-button">London</a>
-  <a href="#" class="w3-bar-item w3-button">Paris</a>
-  <a href="#" class="w3-bar-item w3-button">Tokyo</a>
-</div>
-=======
  body {background-color: #3f3f3e;}
 
 
@@ -28,4 +21,3 @@
  
 
 
->>>>>>> css
