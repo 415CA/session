@@ -15,13 +15,51 @@
   </head>
 
   <body>
-  <header>
-  <Table>
-    <tr>
-      <td><%= link_to "My Profile", user_path(current_user) %></td>
-      <td><%= link_to "Skate Spots", skate_spots_path %></td>
-      <td><%= link_to "Skate Parks", skate_parks_path %></td>
-      <td><%= link_to "Skate Shops", skate_shops_path %></td>
+
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href=<%= users_path %>>Session ]:</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbarsExample01" style="">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+        <% if user_signed_in? %> 
+          <a class="nav-link" href=<%=user_path(current_user) %>>Profile <span class="sr-only">(current)</span></a>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=<%=skate_parks_path %>>Parks</a>
+        </li>
+      <li class="nav-item">
+          <a class="nav-link" href=<%=skate_shops_path %>>Shops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=<%=skate_spots_path %>>Skate Spots</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=<%=skate_spots_path %>>Skate Spots</a>
+        </li>
+        <% if user_signed_in? %>
+        <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
+      <% else %>
+        <%= link_to("Sign In", new_user_session_path) %>
+      <% end %>
+        <li>
+        </li>
+
+      </ul>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+  </nav>
+
+
+
+
+
     <tr>
   </Table>  
   </header>
@@ -32,11 +70,7 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <% if user_signed_in? %>
-      <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
-    <% else %>
-      <%= link_to("Sign In", new_user_session_path) %>
-    <% end %>
+    <footer>
 
     <%= yield %>
 
