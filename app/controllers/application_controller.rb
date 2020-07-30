@@ -18,5 +18,11 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:name, :age, :bio, :borough])
     end
 
+    def save_favorite
+      @current_shop = SkateShops.find(params[:id])
+      current_user.shops << @current_shop
+      redirect_to user_path
+    end
+
 
 end

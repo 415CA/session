@@ -16,22 +16,25 @@
  <% end %>
   
   <%= form_with model: @shop_review do |f| %>
-  <b>Username: </b><%= f.collection_select :user_id, User.all, :id, :name %><br><br>
-  <b>Park: </b><%= f.collection_select :skate_shop_id, SkateShop.all, :id, :name %><br><br>
+      <b>Username: </b><br>
+        <%= current_user.name %>😈<br> 
 
-    <b><%= f.label :title %></b>
-     <%= f.text_field :title %>
-      <br>
-      <br>
-    <b> <%= f.label :content %> </b>
-    <%= f.text_area :content %>
-      <br>
-      <br>
-    <b> <%= f.label :rating %></b>
-    <%= f.text_field :rating %> 
-     <br>
-      <br>
-   
+      <b>Park: </b><br>
+        <%= f.collection_select :skate_shop_id, SkateShop.all, :id, :name %><br>
+
+        <%= f.hidden_field :user_id, value:current_user.id %>
+
+       <b><%= f.label :title %></b><br>
+          <%= f.text_field :title %><br>
+    
+        <b> <%= f.label :content %> </b><br>
+        <%= f.text_area :content %><br>
+
+        <b> <%= f.label :rating %></b><br>
+        <%= f.text_field :rating %> 
+        <br>
+          <br>
+      
 
   <%= f.submit "Create Review" %>
   <% end %>
