@@ -16,7 +16,7 @@
   <h3>Reviews</h3>
 <%@skate_park.park_reviews.each do |review|%>
   <div class="container">
-    <b><%= link_to review.user.name, user_path(review)%></b>/
+    <b><%= link_to review.user.name, user_path(review)%>:</b>
         <%= review.title%>/
           <b>rating:</b><%= review.rating%><br>
             <%= review.content %></p>

@@ -37,12 +37,13 @@ class ShopReviewsController < ApplicationController
   end
 
   def destroy
+    @shop_review = ShopReview.find(params[:id])
     if @shop_review.destroy
       flash[:success] = "ShopReview was successfully deleted"
-      redirect_to @shop_reviews_path
+      redirect_to skate_shop_path(@shop_review.skate_shop_id)
     else
       flash[:error] = "Something went wrong"
-      redirect_to @shop_reviews_path
+      redirect_to skate_shop_path
     end
   end
 
