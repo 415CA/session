@@ -16,12 +16,27 @@
 
   <body>
   <header>
-  <Table>
+  <div class="w3-bar w3-black">
     <tr>
-      <td><%= link_to "My Profile", user_path(current_user) %></td>
-      <td><%= link_to "Skate Spots", skate_spots_path %></td>
-      <td><%= link_to "Skate Parks", skate_parks_path %></td>
-      <td><%= link_to "Skate Shops", skate_shops_path %></td>
+      <% if user_signed_in? %> <td><%= link_to "My Profile", user_path(current_user) %></td><% end %>
+      <td><%= link_to "Spots", skate_spots_path %></td>
+      <td><%= link_to "Parks", skate_parks_path %></td>
+      <td><%= link_to "Shops", skate_shops_path %></td>
+      </div><br><br>
+
+  <div class="topnav">
+  <a href=<%= users_path %> class="active">Session]:</a>
+  <!-- Navigation links (hidden by default) -->
+  <div id="myLinks">
+    <a href=<%=user_path(current_user) %>>Profile</a>
+    <a href=<%=skate_spots_path %>>Spots</a>
+    <a href=<%= skate_parks_path %>>Parks</a>
+    <a href=<%= skate_shops_path %>> Spots </a>
+  </div>
+
+
+
+
     <tr>
   </Table>  
   </header>

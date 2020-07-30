@@ -1,22 +1,26 @@
 <h1> Welcome Skaters </h1>
 
-<h2> My Parks </h2>
-<%# current_user.skate_parks.each do  |park| %>
-  <%#= link_to park.name, skate_park_path(park) %>
-<%# end %>
+  <% if user_signed_in? %>
+  <h2> My Parks </h2>
+    <% current_user.skate_parks.each do  |park| %>
+      <%= link_to park.name, skate_park_path(park) %>
+    <% end %>
+  <% end %>
 
 
+<% if user_signed_in? %>
 <h2> Friends </h2>
 <br>
-<% @users.sort_borough(current_user.borough).each do  |user| %>
-  <% if user != current_user %>
-    <%= link_to user.name, user_path(user) %> | Age <%= user.age%>
-  <br>
-  Bio: <%= user.bio %>
-  <br>
-  Borough: <%= user.borough %>
-  <br>
-  <br>
+  <% @users.sort_borough(current_user.borough).each do  |user| %>
+    <% if user != current_user %>
+      <%= link_to user.name, user_path(user) %> | Age <%= user.age%>
+    <br>
+    Bio: <%= user.bio %>
+    <br>
+    Borough: <%= user.borough %>
+    <br>
+    <br>
+    <% end %>
   <% end %>
 <% end %>
 
