@@ -43,7 +43,7 @@ class ShopReviewsController < ApplicationController
       redirect_to skate_shop_path(@shop_review.skate_shop_id)
     else
       flash[:error] = "Something went wrong"
-      redirect_to skate_shop_path
+      redirect_to skate_shop_path(@shop_review.skate_shop_id)
     end
   end
 
