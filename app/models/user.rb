@@ -17,6 +17,18 @@ class User < ApplicationRecord
   has_many :skate_parks, through: :park_reviews
   has_many :skate_spots, through: :spot_reviews
 
+  def favorite_spots
+    self.user_skate_spots.map{ |spot| spot.skate_spot }.uniq
+  end
+
+  def favorite_shops
+    self.user_skate_shops.map{ |spot| spot.skate_shop }.uniq
+  end
+  
+  def favorite_parks
+    self.user_skate_parks.map{ |spot| spot.skate_park }.uniq
+  end
+
  
     
 end
