@@ -1,29 +1,31 @@
-  <%= link_to "favorite", method: "save_favorite" %>
-  
-  <h1> <%=@skate_shop.name %> </h1>
-  Address: <%=@skate_shop.address %>
-  <br>
-  Borough: <%=@skate_shop.borough %>
-  <br>
-  Rating: <%= @skate_shop.rating%>
-  <br>
-  Description: <%= @skate_shop.description %>
-  <br>
-  Map:
-  <br>
-  <iframe src="<%= @skate_shop.google_map %>" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
-   <hr>
-   <h3>Reviews</h3>
+<h1>Skate Shops</h1>
+<h2> <%=@skate_shop.name %> </h2>
+<% if user_signed_in? %> <%= link_to 'Add to Favorite', new_user_skate_shop_path %> <% end %>
+<br>
+Address: <%=@skate_shop.address %>
+<br>
+Borough: <%=@skate_shop.borough %>
+<br>
+Rating: <%= @skate_shop.rating%>
+<br>
+Description: <%= @skate_shop.description %>
+<br>
+Map:
+<br>
+<iframe src="<%= @skate_shop.google_map %>" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+<hr>
+<h3>Reviews</h3>
 <%@skate_shop.shop_reviews.each do |review|%>
- <div class="container">
- <b><%= link_to review.user.name, user_path(review)%>:</b>
-        <%= review.title%>/
-          <b>rating:</b><%= review.rating%><br>
+  <div class="container">
+    <b><%= link_to review.user.name, user_path(review)%>:</b>
+    <%= review.title%>/
+    <b>rating:</b><%= review.rating%><br>
     <%= review.content %></p>
-    <% if review.user == current_user %>
-     <%= button_to "delete", "/shop_reviews/#{review.id}", method: :delete %>
-    <% end %>
-     </div>
+  <% if review.user == current_user %>
+    <%= button_to "delete", "/shop_reviews/#{review.id}", method: :delete %>
+  <% end %>
+</div>
 <%end%>
+<% if user_signed_in? %>
   <%= link_to "Review Shop", new_shop_review_path, :class => "button" %></p>
+<% end %>

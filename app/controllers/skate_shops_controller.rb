@@ -15,6 +15,6 @@ class SkateShopsController < ApplicationController
     end
 
     def skate_shop_params
-      params.require(:skate_shop).permit(:name, :address, :borough, :description, :google_map )
+      params.require(:skate_shop).permit(:name, :address, :borough, :description, :google_map, :user_skate_shop )
     end
 end

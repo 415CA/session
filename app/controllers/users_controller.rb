@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :age, :bio, :borough, :password)
+    params.require(:user).permit(:name, :age, :bio, :borough, :password, :user_skate_park, :user_skate_spot, :user_skate_shop)
   end
 
   def find_borough

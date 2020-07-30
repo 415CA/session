@@ -1,0 +1,11 @@
+<h3>Add Spot to Favorites </h3>
+<%= form_with model: @user_skate_spot do |f| %>
+  <b> User: </b> <%= f.label current_user.name %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <br>
+  <b> Skate Spots: </b>
+  <br>
+  <%= f.collection_select :skate_spot_id, SkateSpot.all, :id, :name %>
+  <br>
+  <%= f.submit %>
+<% end %>

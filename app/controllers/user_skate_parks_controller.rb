@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 class UserSkateParksController < ApplicationController
-  before_action :find_user_skate_park, except: %i[index new create]
+  before_action :find_user_skate_park, except: [:index, :new, :create]
 
   def index
     @user_skate_parks = UserSkatePark.all
@@ -10,20 +8,19 @@ class UserSkateParksController < ApplicationController
   def show; end
 
   def new
-    @user_skate_parks = UserSkatePark.new
+    @user_skate_park = UserSkatePark.new()
     @skate_parks = SkatePark.all
   end
 
   def edit; end
 
   def create
-    @user_skate_park = UserSkatePark.new(user_skate_park_params)
-    if @user_skate_park.save
-      flash[:success] = 'UserSkatePark successfully created'
-      redirect_to user_path(@user_skate_park.user_id)
+    @user_skate_park = UserSkatePark.create(user_skate_park_params)
+    if @user_skate_park.valid?
+      redirect_to @user_skate_park.skate_park
     else
       flash[:error] = 'Something went wrong'
-      redirect_to users_path
+      redirect_to new_user_skate_park_path
     end
   end
 
@@ -33,7 +30,7 @@ class UserSkateParksController < ApplicationController
       redirect_to @user_skate_park
     else
       flash[:error] = 'Something went wrong'
-      render 'edit'
+      redirect_to new_user_skate_park_path
     end
   end
 
