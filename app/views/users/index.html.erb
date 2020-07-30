@@ -1,22 +1,24 @@
 <h1> Welcome Skaters </h1>
 
+<h2> My Parks </h2>
+<% current_user.skate_parks.each do  |park| %>
+  <%= link_to park.name, skate_park_path(park) %>
+<% end %>
 
-<Table>
-<tr>
-<td><%= link_to "Skate Spots", skate_spots_path %></td>
-<td><%= link_to "Skate Parks", skate_parks_path %></td>
-<td><%= link_to "Skate Shops", skate_shops_path %></td>
-<tr>
-</Table>
 
-<h2> Current Users </h2>
+<h2> Friends </h2>
 <br>
-<% @users.each do  |user| %>
-  <%= link_to user.name, user_path(user) %> | Age <%= user.age%>
+<% @users.sort_borough(current_user.borough).each do  |user| %>
+  <% if user != current_user %>
+    <%= link_to user.name, user_path(user) %> | Age <%= user.age%>
   <br>
   Bio: <%= user.bio %>
   <br>
   Borough: <%= user.borough %>
   <br>
   <br>
+  <% end %>
 <% end %>
+
+<h2>News</h2>
+<div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:500px;background-color:#transparent; border:1px solid #333333;"><div id="rsswidget" style="height:500px;"><iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1596079610450&amp;x=https%3A%2F%2Fwww.thrashermagazine.com%2F%3Fformat%3Dfeed%26type%3Drss&amp;w=500&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=false&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:500px; height:500px;" id="rssOutput">Reading RSS Feed ...</iframe></div><div style="text-align:right;margin-bottom:0;border-top:1px solid #333333;" id="widgetbottom"><span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div></div>

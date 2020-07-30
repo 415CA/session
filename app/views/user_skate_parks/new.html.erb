@@ -1,0 +1,10 @@
+<h3>Add Park to Favorites </h3>
+
+  <%= form_with model: @user_skate_parks do |f| %>
+    <b>Username: </b><%= f.label current_user.name %>
+    <br>
+    <b> Park: </b><%= f.collection_select  :skate_park_id, SkatePark.all, :id, :name %> <br>
+    <br>
+    <br>
+    <%= f.submit "Add to Favorites" %>
+<% end %>
