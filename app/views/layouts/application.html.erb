@@ -18,7 +18,7 @@
   <header>
   <Table>
     <tr>
-      <td><%= link_to "My Profile", user_path(current_user) %></td>
+      <% if user_signed_in? %> <td><%= link_to "My Profile", user_path(current_user) %></td><% end %>
       <td><%= link_to "Skate Spots", skate_spots_path %></td>
       <td><%= link_to "Skate Parks", skate_parks_path %></td>
       <td><%= link_to "Skate Shops", skate_shops_path %></td>
