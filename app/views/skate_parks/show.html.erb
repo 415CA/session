@@ -1,37 +1,52 @@
-<h1>Skate Park</h1>
-<h2> <%=@skate_park.name %> </h2>
-<% if user_signed_in? %> <%= link_to 'Add to Favorite', new_user_skate_park_path %> <% end %>
-<br>
-<b>Address:</b> <%=@skate_park.address %>
-<br>
-<b>Borough:</b> <%=@skate_park.borough %>
-<br>
-<b>Rating:</b> <%= @skate_park.rating%>
-<br>
-<b>Description:</b> <%= @skate_park.description %>
-<br>
-<b>Map:</b>
-<br>
-  <% if @skate_park.google_map%>
-    <%= image_tag @skate_park.google_map %>
-    <% else %>
-    <%= image_tag 'les'%>
-  <% end %>
-<p>
-  <hr>
-  <h3>Reviews</h3>
-  <%@skate_park.park_reviews.each do |review|%>
-    <div class="container">
-      <b><%= link_to review.user.name, user_path(review)%>:</b>
-      <%= review.title%>/
-      <b>rating:</b><%= review.rating%><br>
-      <%= review.content %></p>
-    <% if review.user == current_user %>
-      <%= button_to "delete", "/park_reviews/#{review.id}", method: :delete %>
+<div class="label"><h1>Skate Park</h1></div>
+<div class="showpage">
+
+ <div class="reviews">
+      <div class= "white"><h3>Reviews</h3></div>
+      <%@skate_park.park_reviews.each do |review|%>
+        <div class="container">
+          <b><%= link_to review.user.name, user_path(review)%>:</b>
+          <%= review.title%>/
+          <b>rating:</b><%= review.rating%><br>
+          <%= review.content %></p>
+        <% if review.user == current_user %>
+          <%= button_to "delete", "/park_reviews/#{review.id}", method: :delete %>
+        <% end %>
+      </div>
+    <%end%>
+    <hr>
+    <% if user_signed_in? %>
+      <%= link_to "Review Parks", new_park_review_path, :class => "button" %>
     <% end %>
   </div>
-<%end%>
-<hr>
-<% if user_signed_in? %>
-  <%= link_to "Review Parks", new_park_review_path, :class => "button" %></p>
-<% end %>
+
+   <div class="map">
+      <h4>Map:</h4>
+      <br>
+      <iframe src="<%= @skate_park.google_map %>" width="600" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </div>
+
+  <div class="address">
+    
+   <h3><%=@skate_park.name %></h3></b> <br>
+
+    <% if user_signed_in? %> 
+      <%= link_to 'Add to Favorite', new_user_skate_park_path, :class => "button" %> 
+    <% end %>
+    <br>
+    <br>
+    <b>Address:</b> <%=@skate_park.address %>
+    <br>
+    <b>Borough:</b> <%=@skate_park.borough %>
+    <br>
+    <b>Rating:</b> <%= @skate_park.rating%>
+    <br>
+    <b>Description:</b> <%= @skate_park.description %>
+    <br>
+  </div>
+
+ 
+
+ 
+
+</div>

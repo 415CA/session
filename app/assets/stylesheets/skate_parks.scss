@@ -18,7 +18,65 @@
     background-color: #eee;
     border-radius: 5px;
     padding: 16px;
-    margin: 16px 0;
+    margin: 20px 0px ;
   }
+
+
+
+  html, body, .grid1 { height: 100%; margin: 0; }
+
+.grid1 {
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 6.0fr 0.6fr;
+  grid-template-rows: 0.1fr 4.6fr 0.1fr;
+  gap: 1px 1px;
+  grid-template-areas: ". . . ." ". . park ." ". . . .";
+}
+
+.park { grid-area: park;
+  background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+}
+
+
+
+
+html, body, .showpage { height: 100%; margin: 0; }
+
+.showpage {
+  display: grid;
+  
+  grid-template-columns: 0.4fr 1.5fr 2.1fr 0.5fr;
+  grid-template-rows: 0.1fr 2fr 1.7fr;
+  gap: 1px 1px;
+  grid-template-areas: ". . . ." ". address map ." ". reviews reviews .";
+}
+
+.reviews { grid-area: reviews;
+  background-color: #000000;
+  padding: 40px;
+  margin: 10px; }
+
+.map { grid-area: map; 
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin: 10px;}
+
+.address { grid-area: address;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin: 10px; }
+
+  .white {
+    color: white;
+  }
+
+
+
+  
 
 

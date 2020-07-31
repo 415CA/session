@@ -28,5 +28,10 @@ class User < ApplicationRecord
   def favorite_parks
     self.user_skate_parks.map{ |spot| spot.skate_park }.uniq
   end
+
+  def random_emoji
+    emoji = ["🤡", "😈", "😭", "🥴", "🤠", "👽", "🤪", "💀","👨🏽‍🎨","🤓","👿","🤖","🤦🏻‍♀️","🤦🏽"]
+    emoji.sample
+  end
     
 end
