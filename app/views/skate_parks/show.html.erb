@@ -2,7 +2,7 @@
 <div class="showpage">
 
  <div class="reviews">
-      <h3>Reviews</h3>
+      <div class= "white"><h3>Reviews</h3></div>
       <%@skate_park.park_reviews.each do |review|%>
         <div class="container">
           <b><%= link_to review.user.name, user_path(review)%>:</b>

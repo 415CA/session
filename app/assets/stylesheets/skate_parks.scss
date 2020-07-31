@@ -27,8 +27,8 @@
 
 .grid1 {
   display: grid;
-  grid-template-columns: 0.6fr 0.1fr 3.2fr 0.6fr;
-  grid-template-rows: 0.1fr 3.6fr 0.1fr;
+  grid-template-columns: 0.2fr 0.2fr 6.0fr 0.6fr;
+  grid-template-rows: 0.1fr 4.6fr 0.1fr;
   gap: 1px 1px;
   grid-template-areas: ". . . ." ". . park ." ". . . .";
 }
@@ -47,6 +47,7 @@ html, body, .showpage { height: 100%; margin: 0; }
 
 .showpage {
   display: grid;
+  
   grid-template-columns: 0.4fr 1.5fr 2.1fr 0.5fr;
   grid-template-rows: 0.1fr 2fr 1.7fr;
   gap: 1px 1px;
@@ -54,8 +55,7 @@ html, body, .showpage { height: 100%; margin: 0; }
 }
 
 .reviews { grid-area: reviews;
-  background-color: black;
-  color: white;
+  background-color: #000000;
   padding: 40px;
   margin: 10px; }
 
@@ -70,6 +70,10 @@ html, body, .showpage { height: 100%; margin: 0; }
   color: white;
   padding: 20px;
   margin: 10px; }
+
+  .white {
+    color: white;
+  }
 
 
 

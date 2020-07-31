@@ -38,12 +38,36 @@ html, body, .grid-container { height: 100%; margin: 0; }
     font-family: Impact, Charcoal, sans-serif;
     font-size: 40px;
     font-style: italic;
+    color: rgb(255, 235, 235);
 }
+
+b {
+    color: rgb(182, 182, 182);
+    }
 
 h1 {text-align: center;}
 
+#circle {
+    background: lightblue;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#square {
+    background: lightblue;
+    width: 450px;
+    height: 200px;
+    padding: 20px;
+}
+
 .emoji {
         font-size: 150px;
+        text-align: center;
+        vertical-align: middle;
+        padding-bottom: 50px; 
 }
 
 html, body, .profile { height: 100%; margin: 0; }
@@ -64,7 +88,6 @@ html, body, .profile { height: 100%; margin: 0; }
 
 .bio { grid-area: bio; 
     background-color: black;
-    color: white;
     padding: 20px;
     margin: 10px; }
 
