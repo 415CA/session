@@ -1,14 +1,27 @@
+<div class="profile">
+ 
+ 
+
+
+ <div class="random-emoji">
+<div class= "emoji"><%= @user.random_emoji %></div>
+</div>
+
+ <div class="bio">
 <h1><%=@user.name %></h1>
 <br>
 <b>Age:</b> <%=@user.age%>
 <br>
 <b>Borough:</b> <%=@user.borough%> 
 <br>
-<b>Bio:</b> <%=@user.bio%><br>
+<b>Bio:</b> <%=@user.bio%>
+<br><br>
 <% if @user == current_user %>
-<%= link_to "Edit Profile", edit_user_registration_path, :class => "button" %></p>
+<%= link_to "Edit Profile", edit_user_registration_path, :class => "button" %>
 <% end %>
-<br>
+</div>
+
+  <div class="favorites">
 <b>Favorite Skate Spots:</b>
 <ul>
   <% @user.favorite_spots.each do |spot| %>
@@ -40,3 +53,6 @@
 <b> Check out what's in your city! </b>
 <br>
 <%= render 'near_user' %>
+</div>
+
+</div>

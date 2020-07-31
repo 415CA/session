@@ -40,5 +40,39 @@ html, body, .grid-container { height: 100%; margin: 0; }
     font-style: italic;
 }
 
-/* For presentation only, no need to copy the code below */
+h1 {text-align: center;}
+
+.emoji {
+        font-size: 150px;
+}
+
+html, body, .profile { height: 100%; margin: 0; }
+
+.profile {
+  display: grid;
+  grid-template-columns: 0.4fr 1.5fr 2.1fr 0.5fr;
+  grid-template-rows: 0.1fr 1.3fr 2.4fr;
+  gap: 1px 1px;
+  grid-template-areas: ". . . ." ". random-emoji favorites ." ". bio favorites .";
+}
+
+.random-emoji { grid-area: random-emoji;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px; }
+
+.bio { grid-area: bio; 
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 10px; }
+
+.favorites { grid-area: favorites;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 10px; }
+
+
 

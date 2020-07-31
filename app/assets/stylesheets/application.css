@@ -14,10 +14,15 @@
  *= require_self
  */
 
- body {background-color: #3f3f3e;}
+ body {background-color: #36393e;}
 
+
+ .navbar-brand {
+    font-family: Impact, Charcoal, sans-serif;
+ }
 
  
+
+
+    
  
-
-

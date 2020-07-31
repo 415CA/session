@@ -1,5 +1,9 @@
-<h1>Skate Shops</h1>
-<h2>Manhattan</h2>
+<div class= "label"><h1>Skate Shops</h1></div>
+
+<div class="grid1">
+<div class="park">
+
+<div class= "label"><h2>Manhattan</h2></div>
 <ul>
 <% @skate_shops.sort_borough('Manhattan').each do  |skate_shop| %>
   <li>
@@ -11,7 +15,7 @@
 <% end %>
 </ul>
 
-<h2>Bronx</h2>
+<div class= "label"><h2>Bronx</h2></div>
 <ul>
 <% @skate_shops.sort_borough('Bronx').each do  |skate_shop| %>
   <li>
@@ -22,7 +26,8 @@
   </li>
 <% end %>
 </ul>
-<h2>Brooklyn</h2>
+
+<div class= "label"><h2>Brooklyn</h2></div>
 <ul>
 <% @skate_shops.sort_borough('Brooklyn').each do  |skate_shop| %>
   <li>
@@ -33,7 +38,8 @@
   </li>
 <% end %>
 </ul>
-<h2>Queens</h2>
+
+<div class= "label"><h2>Queens</h2></div>
 <ul>
 <% @skate_shops.sort_borough('Queens').each do  |skate_shop| %>
   <li>
@@ -44,7 +50,9 @@
   </li>
 <% end %>
 </ul>
-<h2>Staten Island</h2>
+
+
+<div class= "label"><h2>Staten Island</h2></div>
 <ul>
 <% @skate_shops.sort_borough("Staten Island").each do  |skate_shop| %>
   <li>
@@ -55,3 +63,6 @@
   </li>
 <% end %>
 </ul>
+
+</div>
+</div>
