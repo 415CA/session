@@ -80,8 +80,8 @@ CSV.foreach(Rails.root.join('lib/skate_park.csv'), headers: true) do |row|
 end
 
 
-10.times do SkateShop.create(name: Faker::TvShows::VentureBros.character, address: Faker::Address.street_address, borough: 'Brooklyn', description: Faker::Hipster.sentences, rating: 10, google_map: Faker::Avatar.image) end
-10.times do SkateShop.create(name: Faker::TvShows::VentureBros.character, address: Faker::Address.street_address, borough: 'Queens', description: Faker::Hipster.sentences, rating: 10, google_map: Faker::Avatar.image) end
-10.times do SkateShop.create(name: Faker::TvShows::VentureBros.character, address: Faker::Address.street_address, borough: 'Manhattan', description: Faker::Hipster.sentences, rating: 10, google_map: Faker::Avatar.image) end
-10.times do SkateShop.create(name: Faker::TvShows::VentureBros.character, address: Faker::Address.street_address, borough: 'Bronx', description: Faker::Hipster.sentences, rating: 10, google_map: Faker::Avatar.image) end
-10.times do SkateShop.create(name: Faker::TvShows::VentureBros.character, address: Faker::Address.street_address, borough: 'Staten Island', description: Faker::Hipster.sentences, rating: 10, google_map: Faker::Avatar.image) end
+10.times do SkateShop.create(name: Faker::Company.name, address: Faker::Address.street_address, borough: 'Brooklyn', description: Faker::Lorem.paragraph, rating: 10, google_map: Faker::Avatar.image) end
+10.times do SkateShop.create(name: Faker::Company.name, address: Faker::Address.street_address, borough: 'Queens', description: Faker::Lorem.paragraph, rating: 10, google_map: Faker::Avatar.image) end
+10.times do SkateShop.create(name: Faker::Company.name, address: Faker::Address.street_address, borough: 'Manhattan', description: Faker::Lorem.paragraph, rating: 10, google_map: Faker::Avatar.image) end
+10.times do SkateShop.create(name: Faker::Company.name, address: Faker::Address.street_address, borough: 'Bronx', description: Faker::Lorem.paragraph, rating: 10, google_map: Faker::Avatar.image) end
+10.times do SkateShop.create(name: Faker::Company.name, address: Faker::Address.street_address, borough: 'Staten Island', description: Faker::Lorem.paragraph, rating: 10, google_map: Faker::Avatar.image) end
