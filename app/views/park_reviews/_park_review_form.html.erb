@@ -1,4 +1,3 @@
-<h3>Review Form</h3>
 <%= form_for @park_review do |f| %>
   <% if @park_review.errors.any? %>
     <div id="error_explanation">
@@ -10,32 +9,33 @@
       <ul>
       <% @park_review.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-   <% end %>
+  <% end %>
       </ul>
     </div>
- <% end %>
-  
-  <%= form_with model: @park_review do |f| %>
-  <b>Username: </b> <%= current_user.name %> <br>
-    
-  <%= f.hidden_field :user_id, value:current_user.id %>
-  <b>Park: </b><br>
-    <%= f.collection_select :skate_park_id, SkatePark.all, :id, :name %><br><br>
-
-    <b><%= f.label :title %></b><br>
-     <%= f.text_field :title %>
-      <br>
-   
-    <b> <%= f.label :content %> </b><br>
-    <%= f.text_area :content %>
-      <br>
-    
-    <b> <%= f.label :rating %></b><br>
-    <%= f.text_field :rating %> 
-     <br>
-      <br>
-   
-
-  <%= f.submit "Create Review" %>
-  <% end %>
 <% end %>
+  
+<main class="pa4 black-80 center measure">
+  <form class="measure">
+  <%= form_with model: @park_review do |f| %>
+  <%= f.hidden_field :user_id, value:current_user.id %>
+  Parks: <%= f.collection_select :skate_park_id, SkatePark.all, :id, :name %>
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+      <div class="mt3">
+        <%= f.label :title, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :title, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :rating, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :rating, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :content, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :content, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+    </fieldset>
+      <%= f.submit "Submit", :class => "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
+    </div>
+      <% end %>
+    <% end %>
+  </form>
+</main>

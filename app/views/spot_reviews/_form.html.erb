@@ -14,17 +14,24 @@
     </div>
   <% end %>
 
-  <b> <%= f.label :title %></b>
-  <%= f.text_field :title %>
-  <br>
-  <br>
-  <b> <%= f.label :content %> </br>
-  <%= f.text_area :content %>
-  <br>
-  <br>
-  <b> <%= f.label :rating %> 
-  <%= f.text_field :rating %>
-  </br>
-  </br>
-  <%= f.submit "Create Review" %>
-<% end %>
+<main class="pa4 black-80 center measure">
+  <form class="measure">
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+      <div class="mt3">
+        <%= f.label :title, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :title, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :rating, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :rating, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :content, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :content, :class => "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" %>
+      </div>
+    </fieldset>
+      <%= f.submit "Submit", :class => "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
+    </div>
+      <% end %>
+  </form>
+</main>

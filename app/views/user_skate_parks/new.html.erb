@@ -1,11 +1,17 @@
-<h3>Add Park to Favorites </h3>
-<%= form_with model: @user_skate_park do |f| %>
-  <b> User: </b> <%= f.label current_user.name %>
-  <%= f.hidden_field :user_id, value:current_user.id %>
-  <br>
-  <b> Skate Parks: </b>
-  <br>
-  <%= f.collection_select :skate_park_id, SkatePark.all, :id, :name %>
-  <br>
-  <%= f.submit %>
-<% end %>
+<header class="tc ph4">
+  <h1 class="f3 f2-m f1-l fw2 black-90 mv3">
+    Add Park to Favorites
+  </h1>
+</header>
+
+<main class="pa4 black-80 center measure">
+  <form class="measure">
+  <%= form_with model: @user_skate_park do |f| %>
+    <%= f.hidden_field :user_id, value:current_user.id %>
+    Skate Parks: 
+    <p><%= f.collection_select :skate_park_id, SkatePark.all, :id, :name %></p>
+    <p><%= f.submit "Submit", :class => "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %></p>
+    </div>
+    <% end %>
+  </form>
+</main>
