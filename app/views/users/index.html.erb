@@ -8,9 +8,9 @@
         <h2 class="fw1 f3 white-80 mt3 mb4">Discover the best skate spots, skate parks, skate shops in NYC</h1>
         </h2>
         <% if user_signed_in? %>
-          <%= link_to "Get Started", user_path(current_user), :class => "f3 grow link dim ph3 pv2 mb2 dib white bg-blue" %>
+          <%= link_to "Explore", user_path(current_user), :class => "f3 grow link dim ph3 pv2 mb2 dib white bg-blue" %>
         <% else  %>
-          <%= link_to "Sign In", new_user_session_path, :class => "f3 grow link dim ph3 pv2 mb2 dib white bg-blue" %>
+          <%= link_to "Get Started", new_user_session_path, :class => "f3 grow link dim ph3 pv2 mb2 dib white bg-blue" %>
         <% end %>
       </div>
     </div>
