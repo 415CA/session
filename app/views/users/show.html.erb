@@ -1,68 +1,76 @@
-<div class="profile">
- 
- 
 
-
- <div class="random-emoji">
- 
-    <div id="circle">
-       <div class= "emoji"><%= @user.random_emoji %></div>
+<article class="mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+  <div class="tc">
+    <div class="br-100 h3 w3 dib"><%= @user.random_emoji %></div>
+    <h1 class="f4"><%=@user.name %></h1>
+    <hr class="mw3 bb bw1 b--black-10">
+  </div>
+  <p class="lh-copy measure center f6 black-70">
+    <strong>Age:</strong> <%=@user.age%>
+    <br>
+    <strong>Borough:</strong> <%=@user.borough%> 
+    <br>
+    <strong>Bio:</strong> <%=@user.bio%>
+    <div>
+      <% if @user == current_user %>
+        <%= link_to "Edit Profile", edit_user_registration_path, :class => "f6 link dim br1 ba ph3 pv2 mb2 dib black" %>
+        <p><%= link_to "Add Skate Spot", new_skate_spot_path, :class => "f6 link dim br1 ba ph3 pv2 mb2 dib black" %></p>
+      <% end %>
     </div>
-   
+  </p>
+</article>
+
+<div class="dt-ns dt--fixed-ns">
+  <div class="dtc-ns tc pv4">
+    <section class="pa2 pa4-ns">
+      <article class="ba b--black-10 br2 bg-white pa4 mw6 center">
+        <div>
+          <h4 class="f5 fw4 black-60 dib v-mid mv0 mr3">Favorite Skate Parks</h4>
+        </div>
+        <ul class="list f6 pl0 mt3 mb0">
+          <% @user.favorite_parks.each do |park| %>
+          <li class="pv2"> 
+            <span class="db black-60"> <%= link_to park.name, skate_park_path(park) %> | Borough: <%=park.borough %> | Rating: <%= park.rating %> </span>
+          </li>
+          <% end %>
+        </ul>
+      </article>
+    </section>
+  </div>
+
+  <div class="dtc-ns tc pv4">
+    <section class="pa2 pa4-ns">
+      <article class="ba b--black-10 br2 bg-white pa4 mw6 center">
+        <div>
+          <h4 class="f5 fw4 black-60 dib v-mid mv0 mr3">Favorite Skate Spots</h4>
+        </div>
+        <ul class="list f6 pl0 mt3 mb0">
+          <% @user.favorite_spots.each do |spot| %>
+          <li class="pv2"> 
+            <span class="db black-60"> <%= link_to spot.name, skate_spot_path(spot) %> | Borough: <%=spot.borough %> | Rating: <%= spot.rating %> </span>
+          </li>
+          <% end %>
+        </ul>
+      </article>
+    </section>
+  </div>
+
+  <div class="dtc-ns tc pv4 ">
+    <section class="pa2 pa4-ns">
+      <article class="ba b--black-10 br2 bg-white pa4 mw6 center">
+        <div>
+          <h4 class="f5 fw4 black-60 dib v-mid mv0 mr3">Favorite Skate Shops</h4>
+        </div>
+        <ul class="list f6 pl0 mt3 mb0">
+          <% @user.favorite_shops.each do |shop| %>
+          <li class="pv2"> 
+            <span class="db black-60"> <%= link_to shop.name, skate_shop_path(shop) %> | Borough: <%=shop.borough %> | Rating: <%= shop.rating %> </span>
+          </li>
+          <% end %>
+        </ul>
+      </article>
+    </section>
+  </div>
 </div>
 
- <div class="bio">
-
-<h1><b><u><%=@user.name %></u></b></h1>
-<br>
-<div id= "square">
-  
-  <strong>Age:</strong> <%=@user.age%>
-
-<br>
-<strong>Borough:</strong> <%=@user.borough%> 
-<br>
-<strong>Bio:</strong> <%=@user.bio%>
-<br><br>
-
-</div >
-<% if @user == current_user %>
-<%= link_to "Edit Profile", edit_user_registration_path, :class => "button" %>
-<% end %>
-</div>
-
-  <div class="favorites">
-<b>Favorite Skate Spots:</b>
-<ul>
-  <% @user.favorite_spots.each do |spot| %>
-  <li> 
-  <b> <%= link_to spot.name, skate_spot_path(spot) %></b> | <b>Borough:</b> <%=spot.borough %> | <b>Rating:</b><%= spot.rating %> 
-  </li>
-  <% end %>
-</ul>
-<br>
-<b>Favorite Skate Shops:</b>
-<ul>
-  <% @user.favorite_shops.each do |shop| %>
-  <li> 
-  <b> <%= link_to shop.name, skate_shop_path(shop) %> </b> | <b>Borough:</b> <%=shop.borough %> | <b>Rating:</b><%= shop.rating %> 
-  </li>
-  <% end %>
-</ul>
-<br>
-<b>Favorite Skate Parks:</b>
-<ul>
-  <% @user.favorite_parks.each do |park| %>
-  <li> 
-    <b> <%= link_to park.name, skate_park_path(park) %> </b> | <b>Borough:</b> <%=park.borough %> | <b>Rating:</b><%= park.rating %>
-  </li>
-  <% end %>
-</ul>
-<br>
-<hr>
-<b> Check out what's in your city! </b>
-<br>
-<%= render 'near_user' %>
-</div>
-
-</div>
+  <%= render 'near_user' %>

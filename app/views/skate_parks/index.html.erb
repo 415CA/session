@@ -1,85 +1,62 @@
-<div class= "label"><h1>Skate Parks</h1></div>
+<header class="tc ph4">
+  <h1 class="f3 f2-m f1-l fw2 black-90 mv3">
+    Skate Parks
+  </h1>
+</header>
 
-<div class="grid1">
-<div class="park">
+<div class="flex flex-wrap">
+  <div class="pa3 pa5-ns">
+    <h4 class="f4 fw6">Manhattan</h4>
+    <% @skate_parks.sort_borough('Manhattan').each do  |skate_park| %>
 
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b"><%= link_to skate_park.name, skate_park_path(skate_park), :class => "db f6 mb1 black link dim"%></dt>
+      <dd class="dib ml0 gray"><%= skate_park.description %></dd>
+    </dl>
+    <% end %>
+  </div>
 
-  <div class= "label"><h2>Manhattan</h2></div>
-  <ul>
-  <% @skate_parks.sort_borough('Manhattan').each do  |skate_park| %>
-    <li>
-      <%= link_to skate_park.name, skate_park_path(skate_park) %> | Rating <%= skate_park.rating%>
-      <br>
-      Description: <%= skate_park.description %>
-      <br>
-    </li>
-  <% end %>
-  </ul>
+  <div class="pa3 pa5-ns">
+    <h4 class="f4 fw6">Brooklyn</h4>
+    <% @skate_parks.sort_borough('Brooklyn').each do  |skate_park| %>
 
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b"><%= link_to skate_park.name, skate_park_path(skate_park), :class => "db f6 mb1 black link dim"%></dt>
+      <dd class="dib ml0 gray"><%= skate_park.description %></dd>
+    </dl>
+    <% end %>
+  </div>
 
+  <div class="pa3 pa5-ns">
+    <h4 class="f4 fw6">Bronx</h4>
+    <% @skate_parks.sort_borough('Bronx').each do  |skate_park| %>
 
-  <div class= "label"><h2>Bronx</h2></div>
-  <ul>
-  <% @skate_parks.sort_borough('Bronx').each do  |skate_park| %>
-    <li>
-      <%= link_to skate_park.name, skate_park_path(skate_park) %> | Rating <%= skate_park.rating%>
-      <br>
-      Description: <%= skate_park.description %>
-      <br>
-    </li>
-  <% end %>
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b"><%= link_to skate_park.name, skate_park_path(skate_park), :class => "db f6 mb1 black link dim"%></dt>
+      <dd class="dib ml0 gray"><%= skate_park.description %></dd>
+    </dl>
+    <% end %>
+  </div>
 
+  <div class="pa3 pa5-ns">
+    <h4 class="f4 fw6">Queens</h4>
+    <% @skate_parks.sort_borough('Queens').each do  |skate_park| %>
 
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b"><%= link_to skate_park.name, skate_park_path(skate_park), :class => "db f6 mb1 black link dim"%></dt>
+      <dd class="dib ml0 gray"><%= skate_park.description %></dd>
+    </dl>
+    <% end %>
+  </div>
 
+  <div class="pa3 pa5-ns">
+    <h4 class="f4 fw6">Staten Island</h4>
+    <% @skate_parks.sort_borough('Staten Island').each do  |skate_park| %>
 
-
-</ul>
-
-<div class= "label"><h2>Brooklyn</h2></div>
-<ul>
-<% @skate_parks.sort_borough('Brooklyn').each do  |skate_park| %>
-  <li>
-    <%= link_to skate_park.name, skate_park_path(skate_park) %> | Rating <%= skate_park.rating%>
-    <br>
-    Description: <%= skate_park.description %>
-    <br>
-  </li>
-<% end %>
-</ul>
-
-
-
-<div class= "label"><h2>Queens</h2></div>
-<ul>
-<% @skate_parks.sort_borough('Queens').each do  |skate_park| %>
-  <li>
-    <%= link_to skate_park.name, skate_park_path(skate_park) %> | Rating <%= skate_park.rating%>
-    <br>
-    Description: <%= skate_park.description %>
-    <br>
-  </li>
-<% end %>
-</ul>
-
-
-
-<div class= "label"><h2>Staten Island</h2></div>
-<ul>
-<% @skate_parks.sort_borough("Staten Island").each do  |skate_park| %>
-  <li>
-    <%= link_to skate_park.name, skate_park_path(skate_park) %> | Rating <%= skate_park.rating%>
-    <br>
-    Description: <%= skate_park.description %>
-    <br>
-  </li>
-<% end %>
-</ul>
-
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b"><%= link_to skate_park.name, skate_park_path(skate_park), :class => "db f6 mb1 black link dim"%></dt>
+      <dd class="dib ml0 gray"><%= skate_park.description %></dd>
+    </dl>
+    <% end %>
+  </div>
 </div>
-</div>
-
-
-
-
- 
-  

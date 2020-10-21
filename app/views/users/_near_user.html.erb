@@ -1,29 +1,51 @@
-<b><%= @user.borough %> Skate Shops</b>
-  <ul>
-    <% SkateShop.select {|shop| shop.borough == @user.borough }.each do |shop| %>
-      <li>
-        <%= link_to shop.name, shop %>
-      </li>
-    <% end %>
-  </ul>
-<br>
+<div class="dt-ns dt--fixed-ns">
+  <div class="dtc-ns tc pv4">
+  <section class="pa2 pa4-ns">
+    <article class="ba b--black-10 br2 bg-white pa4 mw6 center">
+      <div>
+        <h4 class="f5 fw4 black-60 dib v-mid mv0 mr3">Skate Shops</h4>
+      </div>
+      <ul class="list f6 pl0 mt3 mb0">
+        <% SkateShop.select {|shop| shop.borough == @user.borough }.each do |shop| %>
+          <li class="pv2"> 
+            <span class="db black-60"> <%= link_to shop.name, skate_shop_path(shop) %></span>
+          </li>
+        <% end %>
+      </ul>
+    </article>
+  </section>
+</div>
 
-<b><%= @user.borough %> Skate Parks</b>
-  <ul>
-    <% SkatePark.select {|park| park.borough == @user.borough }.each do |park| %>
-      <li>
-        <%= link_to park.name, park%>
-      </li>
-    <% end %>
-  </ul>
-<br>
+<div class="dtc-ns tc pv4">
+  <section class="pa2 pa4-ns">
+    <article class="ba b--black-10 br2 bg-white pa4 mw6 center">
+      <div>
+        <h4 class="f5 fw4 black-60 dib v-mid mv0 mr3">Skate Parks</h4>
+      </div>
+      <ul class="list f6 pl0 mt3 mb0">
+        <% SkatePark.select {|park| park.borough == @user.borough }.each do |park| %>
+          <li class="pv2"> 
+            <span class="db black-60"> <%= link_to park.name, skate_park_path(park) %></span>
+          </li>
+        <% end %>
+      </ul>
+    </article>
+  </section>
+</div>
 
-<b><%= @user.borough %> Skate Spots</b>
-  <ul>
-    <li>
-      <% @user.skate_spots.select {|spot| spot.borough == @user.borough }.each do |spot| %>
-        <%= link_to spot.name, spot%> 
+<div class="dtc-ns tc pv4">
+<section class="pa2 pa4-ns">
+  <article class="ba b--black-10 br2 bg-white pa4 mw6 center">
+    <div>
+      <h4 class="f5 fw4 black-60 dib v-mid mv0 mr3">Skate Spots</h4>
+    </div>
+    <ul class="list f6 pl0 mt3 mb0">
+      <% SkateSpot.select {|spot| spot.borough == @user.borough }.each do |spot| %>
+        <li class="pv2"> 
+          <span class="db black-60"> <%= link_to spot.name, skate_spot_path(spot) %></span>
+        </li>
       <% end %>
-    </li>
-  </ul>
-<br>
+    </ul>
+  </article>
+</section>
+</div>

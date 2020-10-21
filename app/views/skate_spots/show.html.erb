@@ -1,38 +1,58 @@
-<h1>Skate Spot</h1>
-<h2> <%=@skate_spot.name %> </h2>
-<% if user_signed_in? %> 
-  <%= link_to 'Add to Favorites', new_user_skate_spot_path %>
-<% end %>
-<br>
-Address: <%=@skate_spot.address %>
-<br>
-Borough: <%=@skate_spot.borough %>
-<br>
-Rating: <%= @skate_spot.rating%>
-<br>
-Description: <%= @skate_spot.description %>
-<br>
-Map:
-<br>
-  <% if @skate_spot.google_map.include?('https://www.google.com/maps/embed?')%>
-    <iframe src="<%= @skate_spot.google_map %>" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-  <% else %>
-    <%= image_tag @skate_spot.google_map %>
-  <% end %>
-<hr>
-<h3>Reviews</h3>
-<%@skate_spot.spot_reviews.each do |review|%>
-  <div class="container">
-    <b><%= link_to review.user.name, user_path(review)%>:</b>
-    <%= review.title%>/
-    <b>rating:</b><%= review.rating%><br>
-    <%= review.content %></p>
-  <% if review.user == current_user %>
-    <%= button_to "delete", "/spot_reviews/#{review.id}", method: :delete %>
-  <% end %>
-</div>
-<%end%>
+<header class="tc ph4">
+  <h1 class="f3 f2-m f1-l fw2 black-90 mv3">
+    <%=@skate_spot.name %>
+  </h1>
+  <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+    <%= @skate_spot.description %>
+  </h2>
+</header>
 
-<% if user_signed_in? %>
-  <%= link_to "Review Spot", new_spot_review_path, :class => "button" %></p>
-<% end %>
+<div>
+  <div class="fl-ns w-70 mw5 mw7-ns center pa3 ph5-ns">
+    <% if @skate_spot.google_map.include?('https://www.google.com/maps/embed?')%>
+      <iframe src="<%= @skate_spot.google_map %>" width="800" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <% else %>
+      <%= image_tag @skate_spot.google_map %>
+    <% end %>
+  </div>
+
+  <div class="fr-ns w-30 mw5 mw7-ns center pa3 ph5-ns">
+    <article class="center mw5 mw6-ns hidden ba mv4">
+      <h1 class="f4 bg-near-black white mv0 pv2 ph3">Info</h1>
+      <div class="pa3 bt">
+        <p class="f6 f5-ns lh-copy measure mv0">
+          Address: <%=@skate_spot.address %><br/>
+          Borough: <%=@skate_spot.borough %><br/>
+          Rating: <%= @skate_spot.rating%>
+          <% if user_signed_in? %> 
+            <p><%= link_to 'Add to Favorites', new_user_skate_spot_path, :class => "f6 grow link dim ph3 pv2 mb2 dib white bg-black" %></p> 
+          <% end %>
+        </p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="fl w-100 pa2">
+  <article class="center mw5 mw6-ns hidden ba mv4">
+    <h1 class="f4 bg-near-black white mv0 pv2 ph1 pa3">Reviews
+    <% if user_signed_in? %>
+      <%= link_to "Review spot", new_spot_review_path, :class => "f6 fr link dim ba ph3 pv2 mb2 dib white" %>
+    <% end %>
+    </h1>
+    <ul class="list pl0 measure center">
+      <%@skate_spot.spot_reviews.each do |review|%>
+        <li class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+          <span class="f5 dib db lh-copy measure">
+          <%= link_to review.user.name, user_path(review), :class => "db f3 mb1 black link dim"%>
+            Rating: <%= review.rating%><br/>
+            Review: <%= review.content %>
+            <% if review.user == current_user %>
+                <%= button_to "delete", "/spot_reviews/#{review.id}", method: :delete, :class => "f6 grow link dim ph3 pv2 mb2 black bg-white" %>
+            <% end %>
+          </span>
+        </li>
+      <%end%>
+    </ul>
+  </article>
+</div>

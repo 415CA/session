@@ -2,100 +2,97 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-html, body, .grid-container { height: 100%; margin: 0; }
+// html, body, .grid-container { height: 100%; margin: 0; }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 0.9fr 2fr 2.2fr 0.9fr;
-  grid-template-rows: 1.9fr 0.3fr 1.8fr;
-  gap: 1px 1px;
-  grid-template-areas: ". Parks News ." ". Parks News ." ". Friends News .";
-}
+// .grid-container {
+//   display: grid;
+//   grid-template-columns: 0.9fr 2fr 2.2fr 0.9fr;
+//   grid-template-rows: 1.9fr 0.3fr 1.8fr;
+//   gap: 1px 1px;
+//   grid-template-areas: ". Parks News ." ". Parks News ." ". Friends News .";
+// }
 
-.Parks { grid-area: Parks; 
-    background-color: black;
-    color: white;
-    padding: 20px;
-    margin: 10px;
-}
+// .Parks { grid-area: Parks; 
+//     background-color: black;
+//     color: white;
+//     padding: 20px;
+//     margin: 10px;
+// }
 
-.Friends { grid-area: Friends; 
-    background-color: black;
-    color: white;
-    padding: 20px;
-    margin: 10px;
-}
+// .Friends { grid-area: Friends; 
+//     background-color: black;
+//     color: white;
+//     padding: 20px;
+//     margin: 10px;
+// }
 
-.News { grid-area: News; 
-    background-color: black;
-    color: white;
-    padding: 10px;
-    margin: 10px;
-}
+// .News { grid-area: News; 
+//     background-color: black;
+//     color: white;
+//     padding: 10px;
+//     margin: 10px;
+// }
 
-.label {
-    font-weight: Bold;
-    font-family: Impact, Charcoal, sans-serif;
-    font-size: 40px;
-    font-style: italic;
-    color: rgb(255, 235, 235);
-}
+// .label {
+//     font-weight: Bold;
+//     font-family: Impact, Charcoal, sans-serif;
+//     font-size: 40px;
+//     font-style: italic;
+//     color: rgb(255, 235, 235);
+// }
 
-b {
-    color: rgb(182, 182, 182);
-    }
+// b {
+//     color: rgb(182, 182, 182);
+//     }
 
-h1 {text-align: center;}
+// h1 {text-align: center;}
 
-#circle {
-    background: lightblue;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
-}
+// #circle {
+//     background: lightblue;
+//     border-radius: 50%;
+//     width: 200px;
+//     height: 200px;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
 
-#square {
-    background: lightblue;
-    width: 450px;
-    height: 200px;
-    padding: 20px;
-}
+// #square {
+//     background: lightblue;
+//     width: 450px;
+//     height: 200px;
+//     padding: 20px;
+// }
 
-.emoji {
-        font-size: 150px;
-        text-align: center;
-        vertical-align: middle;
-        padding-bottom: 50px; 
-}
+// .emoji {
+//         font-size: 150px;
+//         text-align: center;
+//         vertical-align: middle;
+//         padding-bottom: 50px; 
+// }
 
-html, body, .profile { height: 100%; margin: 0; }
+// html, body, .profile { height: 100%; margin: 0; }
 
-.profile {
-  display: grid;
-  grid-template-columns: 0.4fr 1.5fr 2.1fr 0.5fr;
-  grid-template-rows: 0.1fr 1.3fr 2.4fr;
-  gap: 1px 1px;
-  grid-template-areas: ". . . ." ". random-emoji favorites ." ". bio favorites .";
-}
+// .profile {
+//   display: grid;
+//   grid-template-columns: 0.4fr 1.5fr 2.1fr 0.5fr;
+//   grid-template-rows: 0.1fr 1.3fr 2.4fr;
+//   gap: 1px 1px;
+//   grid-template-areas: ". . . ." ". random-emoji favorites ." ". bio favorites .";
+// }
 
-.random-emoji { grid-area: random-emoji;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    margin: 10px; }
+// .random-emoji { grid-area: random-emoji;
+//     background-color: black;
+//     color: white;
+//     padding: 10px;
+//     margin: 10px; }
 
-.bio { grid-area: bio; 
-    background-color: black;
-    padding: 20px;
-    margin: 10px; }
+// .bio { grid-area: bio; 
+//     background-color: black;
+//     padding: 20px;
+//     margin: 10px; }
 
-.favorites { grid-area: favorites;
-    background-color: black;
-    color: white;
-    padding: 20px;
-    margin: 10px; }
-
-
-
+// .favorites { grid-area: favorites;
+//     background-color: black;
+//     color: white;
+//     padding: 20px;
+//     margin: 10px; }

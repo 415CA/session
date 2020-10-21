@@ -14,29 +14,40 @@
     </div>
   <% end %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <br>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <br>
-  <br>
-  <%= f.label :borough %>
-  <%= f.text_field :borough %>
-  <br>
-  <br>
-  <%= f.label :description %>
-  <%= f.text_field :description  %>
-  <br>
-  <br>
-  <%= f.label :rating %>
-  <%= f.text_field :description  %>
-  <br>
-  <br>
-  <%= f.label 'Google Map Link' %>
-  <%= f.text_field :google_map  %>
-  <br>
-  <br>
-  <%= f.submit "Create Review" %>
-<% end %>
+<main class="pa4 black-80 center measure">
+  <form class="measure">
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+      <div class="mt3">
+        <%= f.label :name, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :name, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :address, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :address, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :borough, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :borough, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :description, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :description, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :rating, :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :description, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label 'Google Map', :class => "db fw6 lh-copy f6" %>
+        <%= f.text_field :google_map, :class => "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mv3">
+        <label class="db fw6 lh-copy f6" for="password">Password</label>
+        <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password">
+      </div>
+    </fieldset>
+      <%= f.submit "Submit", :class => "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
+    </div>
+      <% end %>
+  </form>
+</main>

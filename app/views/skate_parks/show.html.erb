@@ -1,52 +1,58 @@
-<div class="label"><h1>Skate Park</h1></div>
-<div class="showpage">
+<header class="tc ph4">
+  <h1 class="f3 f2-m f1-l fw2 black-90 mv3">
+    <%=@skate_park.name %>
+  </h1>
+  <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+    <%= @skate_park.description %>
+  </h2>
+</header>
 
- <div class="reviews">
-      <div class= "white"><h3>Reviews</h3></div>
-      <%@skate_park.park_reviews.each do |review|%>
-        <div class="container">
-          <b><%= link_to review.user.name, user_path(review)%>:</b>
-          <%= review.title%>/
-          <b>rating:</b><%= review.rating%><br>
-          <%= review.content %></p>
-        <% if review.user == current_user %>
-          <%= button_to "delete", "/park_reviews/#{review.id}", method: :delete %>
-        <% end %>
+<div>
+  <div class="fl-ns w-70 mw5 mw7-ns center pa3 ph5-ns">
+    <% if @skate_park.google_map && @skate_park.google_map.include?('https://www.google.com/maps/embed?')%>
+      <iframe src="<%= @skate_park.google_map %>" width="800" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <% else %>
+      <img src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
+    <% end %>
+  </div>
+
+  <div class="fr-ns w-30 mw5 mw7-ns center pa3 ph5-ns">
+    <article class="center mw5 mw6-ns hidden ba mv4">
+      <h1 class="f4 bg-near-black white mv0 pv2 ph3">Info</h1>
+      <div class="pa3 bt">
+        <p class="f6 f5-ns lh-copy measure mv0">
+          Address: <%=@skate_park.address %><br/>
+          Borough: <%=@skate_park.borough %><br/>
+          Rating: <%= @skate_park.rating%>
+          <% if user_signed_in? %> 
+            <p><%= link_to 'Add to Favorites', new_user_skate_park_path, :class => "f6 grow link dim ph3 pv2 mb2 dib white bg-black" %></p> 
+          <% end %>
+        </p>
       </div>
-    <%end%>
-    <hr>
+    </article>
+  </div>
+</div>
+
+<div class="fl w-100 pa2">
+  <article class="center mw5 mw6-ns hidden ba mv4">
+    <h1 class="f4 bg-near-black white mv0 pv2 ph1 pa3">Reviews
     <% if user_signed_in? %>
-      <%= link_to "Review Parks", new_park_review_path, :class => "button" %>
+      <%= link_to "Review park", new_park_review_path, :class => "f6 fr link dim ba ph3 pv2 mb2 dib white" %>
     <% end %>
-  </div>
-
-   <div class="map">
-      <h4>Map:</h4>
-      <br>
-      <iframe src="<%= @skate_park.google_map %>" width="600" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-  </div>
-
-  <div class="address">
-    
-   <h3><%=@skate_park.name %></h3></b> <br>
-
-    <% if user_signed_in? %> 
-      <%= link_to 'Add to Favorite', new_user_skate_park_path, :class => "button" %> 
-    <% end %>
-    <br>
-    <br>
-    <b>Address:</b> <%=@skate_park.address %>
-    <br>
-    <b>Borough:</b> <%=@skate_park.borough %>
-    <br>
-    <b>Rating:</b> <%= @skate_park.rating%>
-    <br>
-    <b>Description:</b> <%= @skate_park.description %>
-    <br>
-  </div>
-
- 
-
- 
-
+    </h1>
+    <ul class="list pl0 measure center">
+      <%@skate_park.park_reviews.each do |review|%>
+        <li class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+          <span class="f5 dib db lh-copy measure">
+          <%= link_to review.user.name, user_path(review), :class => "db f3 mb1 black link dim"%>
+            Rating: <%= review.rating%><br/>
+            Review: <%= review.content %>
+            <% if review.user == current_user %>
+                <%= button_to "delete", "/park_reviews/#{review.id}", method: :delete, :class => "f6 grow link dim ph3 pv2 mb2 black bg-white" %>
+            <% end %>
+          </span>
+        </li>
+      <%end%>
+    </ul>
+  </article>
 </div>

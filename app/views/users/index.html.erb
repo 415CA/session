@@ -1,49 +1,33 @@
-
-<div class="grid-container">
-  <div class="Parks">
-    <div class= "label"> MY Parks </div>
-    <% if user_signed_in? %>
-  <% current_user.favorite_parks.each do  |park| %>
-    <%= link_to park.name, skate_park_path(park) %> | <%= park.description %>
-  <%end%>
-<% else  %>
-  Sign-in to Add Your Favorite Skate Parks!
-<% end %>
-  </div>
-
-
-  <div class="Friends">
-    <div class= "label"> FRIENDS </div>
-    
-      <br>
-      <% if user_signed_in? %>
-  <br>
-  <% @users.sort_borough(current_user.borough).each do  |user| %>
-    <% if user != current_user %>
-      <%= link_to user.name, user_path(user) %> | Age <%= user.age%>
-      <br>
-      Bio: <%= user.bio %>
-      <br>
-      Borough: <%= user.borough %>
-      <br>
-      <br>
-    <% end %>
-  <% end  %>
-<% else %>
-  Sign-in to See Your Friends!
-<% end %>
-  
-
-
-  </div>
-  
-  <div class="News"><br>
-    <div class= "label"> NEWS </div>
-    <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:500px;background-color:#transparent; border:1px solid #333333;">
-     <div id="rsswidget" style="height:620px;">
-      <iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1596079610450&amp;x=https%3A%2F%2Fwww.thrashermagazine.com%2F%3Fformat%3Dfeed%26type%3Drss&amp;w=500&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=false&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=false&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:500px; height:620px;" id="rssOutput">Reading RSS Feed ...</iframe>
+<header class="sans-serif">
+  <div class="cover bg-left bg-center-l" style="background-image: url(https://images.unsplash.com/photo-1536318431364-5cc762cfc8ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+    <div class="bg-black-50 pb5 pb6-m pb7-l">
+      <nav class="dt w-100 mw8 center"> 
+      </nav> 
+      <div class="tc-l mt4 mt5-m mt6-l ph3">
+        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Session is an app for skaters, by skaters
+        <h2 class="fw1 f3 white-80 mt3 mb4">Discover the best skate spots, skate parks, skate shops in NYC</h1>
+        </h2>
+        <% if user_signed_in? %>
+          <%= link_to "Get Started", user_path(current_user), :class => "f3 grow link dim ph3 pv2 mb2 dib white bg-blue" %>
+        <% else  %>
+          <%= link_to "Sign In", new_user_session_path, :class => "f3 grow link dim ph3 pv2 mb2 dib white bg-blue" %>
+        <% end %>
+      </div>
     </div>
-    <div style="text-align:right;margin-bottom:0;border-top:1px solid #333333;" id="widgetbottom">
-    <span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div></div>
+  </div> 
+</header>
+
+<div class="dt-ns dt--fixed-ns">
+  <div class="dtc-ns tc pv4">
+    <h1 class="f4 mw6 center">Thrasher Magazine</h1>
+    <iframe width="95%" height="700" src="//rss.bloople.net/?url=https%3A%2F%2Fwww.thrashermagazine.com%2F%3Fformat%3Dfeed%26type%3Drss&limit=20&showtitle=false&showicon=true&type=html"></iframe>
+  </div>
+  <div class="dtc-ns tc pv4">
+    <h1 class="f4 mw6 center">Transworld Skateboarding</h1>
+    <iframe width="95%" height="700" src="//rss.bloople.net/?url=https%3A%2F%2Fskateboarding.transworld.net%2Ffeed%2F&limit=20&showtitle=false&showicon=true&type=html"></iframe>
+  </div>
+  <div class="dtc-ns tc pv4">
+    <h1 class="f4 mw6 center">Jenkem Magazine</h1>
+    <iframe width="95%" height="700" src="//rss.bloople.net/?url=http%3A%2F%2Fwww.jenkemmag.com%2Fhome%2Ffeed%2F&limit=20&showtitle=false&showicon=true&type=html"></iframe>
   </div>
 </div>
