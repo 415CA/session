@@ -23,13 +23,13 @@
         <a class="link dim gray f6 f5-ns dib mr3" href=<%=skate_shops_path %>>Shops</a>
         <a class="link dim gray f6 f5-ns dib mr3" href=<%=skate_spots_path %>>Skate Spots</a>
         <a class="link dim gray f6 f5-ns dib mr3" href=<%=user_path(current_user) %>>Profile</a>
-        <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete', :class => "f6 grow link dim ba ph3 pv2 mb2 dib black") %>
+        <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete', :class => "f6 fr grow link dim ba ph3 pv2 mb2 dib black") %>
       <% else %>
         <a class="link dim black b f6 f5-ns dib mr3" href=<%=users_path %> title="Home">S E S S I O N ]:</a>
         <a class="link dim gray f6 f5-ns dib mr3" href=<%=skate_parks_path %>>Parks</a>
         <a class="link dim gray f6 f5-ns dib mr3" href=<%=skate_shops_path %>>Shops</a>
         <a class="link dim gray f6 f5-ns dib mr3" href=<%=skate_spots_path %>>Skate Spots</a>
-        <%= link_to("Sign In", new_user_session_path, :class => "f6 grow link dim ph3 pv2 mb2 dib white bg-black") %>
+        <%= link_to("Sign In", new_user_session_path, :class => "f6 fr grow link dim ph3 pv2 mb2 dib white bg-black") %>
       <% end %>
     </nav>
 
